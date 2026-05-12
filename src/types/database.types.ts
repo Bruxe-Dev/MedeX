@@ -53,3 +53,18 @@ export interface InventoryRecord {
     lastUpdatedAt: number;
     lastUpdatedBy: string;
 }
+
+export interface Reservation {
+    id: string;
+    pharmacyId: string;
+    medicationId: string;
+    hospitalId: string;
+    requestedBy: string;
+    quantity: number;
+    status: ReservationStatus;
+    createdAt: number;
+    expiresAt: number;
+    confirmedAt?: number;
+    fulfilledAt?: number;
+    notes?: string;
+}
