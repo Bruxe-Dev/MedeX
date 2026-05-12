@@ -30,3 +30,15 @@ export interface Pharmacy {
     createdAt: number;
     updatedAt: number;
 }
+
+export interface Medication {
+    id: string;
+    name: string;
+    genericName: string;
+    category: string;
+    dosage: string;
+    unit: string;
+    requiresPrescription: boolean;
+    description?: string;
+    createdAt: number;
+}
