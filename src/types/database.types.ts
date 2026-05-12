@@ -68,3 +68,5 @@ export interface Reservation {
     fulfilledAt?: number;
     notes?: string;
 }
+
+export type GeoIndex = Record<string, Record<string, true>>;
