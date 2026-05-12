@@ -42,3 +42,14 @@ export interface Medication {
     description?: string;
     createdAt: number;
 }
+
+export interface InventoryRecord {
+    pharmacyId: string;
+    medicationId: string;
+    quantity: number;
+    reserved: number;
+    lowStockThreshold: number;
+    status: InventoryStatus;
+    lastUpdatedAt: number;
+    lastUpdatedBy: string;
+}
