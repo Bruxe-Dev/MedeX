@@ -18,3 +18,8 @@ function createFirebaseApp(): App {
 }
 
 const app = createFirebaseApp()
+
+export const db: Database = getDatabase(app)
+export const auth: Auth = getAuth(app)
+
+export const dbRef = (path: string) => db.ref(path);
