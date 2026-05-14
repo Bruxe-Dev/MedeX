@@ -14,3 +14,13 @@ export type AuthUser = {
 export type AppVariable = {
     user: AuthUser;
 };
+
+export async function authMiddleware(c: Context, next: Next): Promise<Response | void> {
+    const authHeader = c.req.header('Authorization');
+
+    if (!authHeader) {
+        return c.json({
+            success: false, error: "Missing Authorization header"
+        }, 401)
+    }
+}
