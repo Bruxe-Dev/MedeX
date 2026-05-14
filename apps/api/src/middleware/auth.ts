@@ -34,7 +34,7 @@ export async function authMiddleware(c: Context, next: Next): Promise<Response |
         }, 401)
     }
 
-    const token = parts[1];
+    const token = parts[1]!;
 
     try {
         const decoded: DecodedIdToken = await auth.verifyIdToken(token);
