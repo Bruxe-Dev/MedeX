@@ -18,10 +18,8 @@ export function errorHandler(error: Error, c: Context): Response {
             {
                 success: false,
                 error: "Validation failed",
-                // Format Zod's issues into human-readable field errors
-                // e.g. { "quantity": "Expected number, received string" }
                 fields: Object.fromEntries(
-                    error.errors.map((e) => [e.path.join("."), e.message])
+                    error.issues.map((e) => [e.path.join("."), e.message])
                 ),
             },
             400
