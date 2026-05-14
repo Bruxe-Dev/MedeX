@@ -4,6 +4,7 @@ import { auth } from "../lib/firebase.js";
 import type { UserRole } from "../../../../src/types/database.types.js";
 import { success } from "zod";
 import { error } from "node:console";
+import { constrainedMemory } from "node:process";
 
 export type AuthUser = {
     uid: string;
@@ -37,7 +38,27 @@ export async function authMiddleware(c: Context, next: Next): Promise<Response |
 
     try {
         const decoded: DecodedIdToken = await auth.verifyIdToken(token);
-    } catch (err) {
 
+        const role = (decoded["role"] as UserRole) ?? "HOSPITAL_STAFF";
+        const hospitalId = decoded["hospitalId"] as string | undefined;
+        const pharmacyId = decoded["pharmacyId"] as string | undefined;
+
+        c.set("user", {
+            uid: decoded.uid,
+            email: decoded.email,
+            role,
+            hospitalId,
+            pharmacyId,
+        });
+
+        await next();
+    } catch (err) {
+        const message =
+            error instanceof Error ? error.message : "Token verification failed";
+
+        return c.json(
+            { success: false, error: "Unauthorized", detail: message },
+            401
+        );
     }
 }
