@@ -62,3 +62,22 @@ export async function authMiddleware(c: Context, next: Next): Promise<Response |
         );
     }
 }
+
+export function requireRole(...allowedRoles: UserRole[]) {
+    return async (c: Context, next: Next): Promise<Response | void> => {
+        const user = c.get("user") as AuthUser;
+
+        if (!allowedRoles.includes(user.role)) {
+            return c.json(
+                {
+                    success: false,
+                    error: "Forbidden",
+                    detail: `This action requires one of: ${allowedRoles.join(", ")}`,
+                },
+                403
+            );
+        }
+
+        await next();
+    };
+}
