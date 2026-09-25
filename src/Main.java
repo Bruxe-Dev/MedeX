@@ -10,5 +10,7 @@ public class Main{
         System.out.println(stock.getPharmacy().getName());
         System.out.println(stock.getMedication().getName());
         System.out.println(stock.getQuantity());
+
+        ubumwe.addStock(stock);
     }
 }
