@@ -1,4 +1,6 @@
 import lombok.Getter;
+import lombok.Setter;
+
 @Getter
 public class Medication {
     private final String name;
