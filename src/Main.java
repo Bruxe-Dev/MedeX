@@ -22,5 +22,9 @@ public class Main{
             System.out.println(e.getMessage());
         }
         System.out.println(stock.getQuantity());
+
+        PharmacyStock newStock = new PharmacyStock(ubumwe,metformin,45);
+        ubumwe.addStock(newStock);
+        System.out.println(stock.getQuantity());
     }
 }
