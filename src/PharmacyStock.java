@@ -15,6 +15,20 @@ public class PharmacyStock {
     }
 
     public void addQuantity(int newQuantity){
+        if(newQuantity < 1){
+            throw new IllegalArgumentException("Invalid Value");
+        }
         this.quantity += newQuantity;
+    }
+
+    public void dispenseQ(int dispenseQuantity){
+        if(dispenseQuantity > this.quantity){
+            throw new IllegalArgumentException("Specified Units Unavailable!");
+        }
+        if(dispenseQuantity < 1){
+            throw new IllegalArgumentException("Invalid Value");
+        }
+        this.quantity -= dispenseQuantity;
+        System.out.println("Successfully Dispensed: "+ dispenseQuantity);
     }
 }
