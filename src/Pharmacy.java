@@ -26,6 +26,11 @@ public class Pharmacy {
             return;
         }
 
+        if(stock.getPharmacy() != this){
+            System.out.println("Can't Edit Others Pharmacy stocks");
+            return;
+        }
+
         this.stocks.add(stock);
     }
 
