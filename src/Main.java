@@ -15,12 +15,11 @@ public class Main{
         System.out.println(ubumwe.getStocks().size());
 
         stock.addQuantity(30);
-        System.out.println(stock.getQuantity());
         try{
-            stock.dispenseQuantity(100);
+            stock.dispenseQuantity(20);
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
-
+        System.out.println(stock.getQuantity());
     }
 }
