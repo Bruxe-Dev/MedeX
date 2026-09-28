@@ -5,7 +5,7 @@ import lombok.Setter;
 public class PharmacyStock {
     private final Pharmacy pharmacy;
     private final Medication medication;
-    @Setter
+    //@Setter
     private int quantity;
 
     public PharmacyStock(Pharmacy pharmacy,Medication medication, int quantity){
@@ -21,7 +21,7 @@ public class PharmacyStock {
         this.quantity += newQuantity;
     }
 
-    public void dispenseQ(int dispenseQuantity){
+    public void dispenseQuantity(int dispenseQuantity){
         if(dispenseQuantity > this.quantity){
             throw new IllegalArgumentException("Specified Units Unavailable!");
         }

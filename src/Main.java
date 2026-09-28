@@ -16,6 +16,6 @@ public class Main{
 
         stock.addQuantity(30);
         System.out.println(stock.getQuantity());
-        stock.dispenseQ(15);
+        stock.dispenseQuantity(15);
     }
 }
