@@ -29,6 +29,5 @@ public class PharmacyStock {
             throw new IllegalArgumentException("Invalid Value");
         }
         this.quantity -= dispenseQuantity;
-        System.out.println("Successfully Dispensed: "+ dispenseQuantity);
     }
 }

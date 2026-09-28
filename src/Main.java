@@ -16,6 +16,11 @@ public class Main{
 
         stock.addQuantity(30);
         System.out.println(stock.getQuantity());
-        stock.dispenseQuantity(15);
+        try{
+            stock.dispenseQuantity(100);
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 }
