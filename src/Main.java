@@ -13,5 +13,8 @@ public class Main{
 
         ubumwe.addStock(stock);
         System.out.println(ubumwe.getStocks().size());
+
+        stock.addQuantity(30);
+        System.out.println(stock.getQuantity());
     }
 }

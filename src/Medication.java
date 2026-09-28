@@ -11,6 +11,8 @@ public class Medication {
         this.dosage = dosage;
     };
 
+
+
 //    public String getName(){
 //        return this.name;
 //    }
