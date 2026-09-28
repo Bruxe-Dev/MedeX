@@ -39,9 +39,10 @@ public class Pharmacy {
 
             if (exists){
                 existingStock.addQuantity(stock.getQuantity());
+                return;
             }
-            this.stocks.add(stock);
         }
+        this.stocks.add(stock);
     }
 
 }
