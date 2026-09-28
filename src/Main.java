@@ -1,4 +1,4 @@
-import java.io.*;
+//import java.io.*;
 
 public class Main{
     public static void main(String[] args) {
@@ -17,6 +17,7 @@ public class Main{
         stock.addQuantity(30);
         try{
             stock.dispenseQuantity(20);
+            System.out.println("Successfully Dispensed");
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }

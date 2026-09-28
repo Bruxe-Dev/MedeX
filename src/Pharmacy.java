@@ -1,5 +1,6 @@
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,16 @@ public class Pharmacy {
             return;
         }
 
-        this.stocks.add(stock);
+        for(PharmacyStock existingStock: stocks){
+            boolean exists = Objects.equals(
+                    existingStock.getMedication().getName()
+                    , stock.getMedication().getName());
+
+            if (exists){
+                existingStock.addQuantity(stock.getQuantity());
+            }
+            this.stocks.add(stock);
+        }
     }
 
 }

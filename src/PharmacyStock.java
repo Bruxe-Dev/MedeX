@@ -11,6 +11,10 @@ public class PharmacyStock {
     public PharmacyStock(Pharmacy pharmacy,Medication medication, int quantity){
         this.pharmacy = pharmacy;
         this.medication = medication;
+
+        if (quantity < 0){
+            throw new IllegalArgumentException("Invalid Quantity");
+        }
         this.quantity = quantity;
     }
 
@@ -18,6 +22,7 @@ public class PharmacyStock {
         if(newQuantity < 1){
             throw new IllegalArgumentException("Invalid Value");
         }
+        
         this.quantity += newQuantity;
     }
 
