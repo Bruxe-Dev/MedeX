@@ -1,5 +1,4 @@
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Objects;
 
@@ -23,6 +22,10 @@ public class Medication {
         return Objects.equals(this.name, other.name) && Objects.equals(this.dosage, other.dosage);
     }
 
+    @Override
+    public int hashCode(){
+        return Objects.hash(name,dosage);
+    }
 //    public String getName(){
 //        return this.name;
 //    }
