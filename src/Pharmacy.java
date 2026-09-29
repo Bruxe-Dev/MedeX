@@ -17,6 +17,9 @@ public class Pharmacy {
     private String phoneNumber;
 
     public Pharmacy(String name, String location, String phoneNumber){
+        if(name==null || location==null || phoneNumber==null){
+            throw new IllegalArgumentException("Null Arguments! Please refill them");
+        }
         this.name = name;
         this.location = location;
         this.phoneNumber = phoneNumber;
