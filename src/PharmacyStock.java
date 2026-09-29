@@ -38,4 +38,14 @@ public class PharmacyStock {
         }
         this.quantity -= dispenseQuantity;
     }
+
+    public StockStatus getStatus(){
+        if(this.quantity == 0){
+            return StockStatus.OUT_OF_STOCK;
+        } else if (this.quantity <= 10) {
+            return StockStatus.LOW_STOCK;
+        }else {
+            return StockStatus.AVAILABLE;
+        }
+    }
 }

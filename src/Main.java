@@ -12,7 +12,7 @@ public class Main{
 
         PharmacyStock stock = new PharmacyStock(ubumwe,metformin,45);
 
-        System.out.println(stock.getPharmacy().getName());
+        System.out.println(stock.getStatus());
         System.out.println(m1.equals(m2));
         System.out.println(m1.equals(m3));
         System.out.println(stock.getMedication().getName());
