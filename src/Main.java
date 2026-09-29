@@ -1,5 +1,7 @@
 //import java.io.*;
 
+import java.util.NoSuchElementException;
+
 public class Main{
     public static void main(String[] args) {
         Medication metformin = new Medication("Metformin", "500mg");
@@ -16,9 +18,8 @@ public class Main{
 
         stock.addQuantity(30);
         try{
-            stock.dispenseQuantity(20);
-            System.out.println("Successfully Dispensed");
-        }catch (IllegalArgumentException e){
+            ubumwe.dispenseMedication(new Medication("Ibuprofen","400mg"),5);
+        }catch (NoSuchElementException e){
             System.out.println(e.getMessage());
         }
         System.out.println(stock.getQuantity());

@@ -48,6 +48,9 @@ public class Pharmacy {
     }
 
     public void dispenseMedication(Medication medication, int quantity){
+        if(medication == null) {
+            throw new IllegalArgumentException("Can't dispense a Null field!");
+        }
         for(PharmacyStock stock:stocks){
             boolean medicationExist = Objects.equals(stock.getMedication().getName(),medication.getName());
 
