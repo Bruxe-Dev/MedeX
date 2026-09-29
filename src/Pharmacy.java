@@ -25,13 +25,11 @@ public class Pharmacy {
 
     public void addStock(PharmacyStock stock){
         if (stock == null){
-            System.out.println("Can't add an empty record!");
-            return;
+            throw new IllegalArgumentException("Stock can't be null!");
         }
 
         if(stock.getPharmacy() != this){
-            System.out.println("Can't Edit Others Pharmacy stocks");
-            return;
+            throw new IllegalArgumentException("Specified Stocks Belong to another pharmacy!");
         }
 
         for(PharmacyStock existingStock: stocks){
@@ -49,7 +47,7 @@ public class Pharmacy {
 
     public void dispenseMedication(Medication medication, int quantity){
         if(medication == null) {
-            throw new IllegalArgumentException("Can't dispense a Null field!");
+            throw new IllegalArgumentException("Medications can't be null!");
         }
         for(PharmacyStock stock:stocks){
             boolean medicationExist = Objects.equals(stock.getMedication().getName(),medication.getName());
