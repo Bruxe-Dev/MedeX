@@ -12,6 +12,9 @@ public class PharmacyStock {
         this.pharmacy = pharmacy;
         this.medication = medication;
 
+        if (pharmacy == null || medication == null){
+            throw new IllegalArgumentException("Null Argument passed! Please check your Input.");
+        }
         if (quantity < 0){
             throw new IllegalArgumentException("Invalid Quantity");
         }
