@@ -12,6 +12,9 @@ public class Main{
 
         PharmacyStock stock = new PharmacyStock(ubumwe,metformin,45);
         StockReport report = new StockReport(stock);
+        MedicationReport report1 = new MedicationReport();
+
+        report1.print();
         report.print();
 
         System.out.println(stock.getStatus());
