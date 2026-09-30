@@ -11,6 +11,8 @@ public class Main{
         Pharmacy ubumwe = new Pharmacy("Ubumwe", "Nyarutarama", "+250794889741");
 
         PharmacyStock stock = new PharmacyStock(ubumwe,metformin,45);
+        StockReport report = new StockReport(stock);
+        report.print();
 
         System.out.println(stock.getStatus());
         System.out.println(m1.equals(m2));
