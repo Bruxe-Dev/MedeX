@@ -2,7 +2,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +35,10 @@ public class Pharmacy {
         }
 
         for(PharmacyStock existingStock: stocks){
-            boolean exists = Objects.equals(
-                    existingStock.getMedication().getName()
-                    , stock.getMedication().getName());
+            boolean exists = existingStock.getMedication()
+                    .equals(
+                            stock.getMedication()
+                    );
 
             if (exists){
                 existingStock.addQuantity(stock.getQuantity());
@@ -53,7 +53,10 @@ public class Pharmacy {
             throw new IllegalArgumentException("Medications can't be null!");
         }
         for(PharmacyStock stock:stocks){
-            boolean medicationExist = Objects.equals(stock.getMedication().getName(),medication.getName());
+            boolean medicationExist = stock.getMedication()
+                    .equals(
+                            medication
+                    );
 
             if(medicationExist){
                 stock.dispenseQuantity(quantity);
