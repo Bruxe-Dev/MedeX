@@ -1,14 +1,20 @@
 //import java.io.*;
+import java.util.*;
 
 import java.util.NoSuchElementException;
 
 public class Main{
     public static void main(String[] args) {
         Medication metformin = new Medication("Metformin", "500mg");
+        Set<Medication> medications = new HashSet<>();
         Medication m1 = new Medication("Metformin", "500mg");
         Medication m2 = new Medication("Metformin", "500mg");
         Medication m3 = new Medication("Metformin", "850mg");
         Pharmacy ubumwe = new Pharmacy("Ubumwe", "Nyarutarama", "+250794889741");
+
+        medications.add(m1);
+        medications.add(m2);
+        medications.add(m3);
 
         PharmacyStock stock = new PharmacyStock(ubumwe,metformin,45);
         StockReport report = new StockReport(stock);
@@ -22,6 +28,7 @@ public class Main{
         System.out.println(m1.equals(m3));
         System.out.println(stock.getMedication().getName());
         System.out.println(stock.getQuantity());
+        System.out.println(medications.size());
 
         ubumwe.addStock(stock);
         System.out.println(ubumwe.getStocks().size());
