@@ -5,8 +5,10 @@ import java.util.NoSuchElementException;
 
 public class Main{
     public static void main(String[] args) {
-        Medication metformin = new Medication("Metformin", "500mg");
         Set<Medication> medications = new HashSet<>();
+        Map<Medication,Integer> medicationStock = new HashMap<>();
+
+        Medication metformin = new Medication("Metformin", "500mg");
         Medication m1 = new Medication("Metformin", "500mg");
         Medication m2 = new Medication("Metformin", "500mg");
         Medication m3 = new Medication("Metformin", "850mg");
@@ -15,6 +17,10 @@ public class Main{
         medications.add(m1);
         medications.add(m2);
         medications.add(m3);
+
+
+        medicationStock.put(metformin,45);
+        medicationStock.put(m1,45);
 
         PharmacyStock stock = new PharmacyStock(ubumwe,metformin,45);
         StockReport report = new StockReport(stock);

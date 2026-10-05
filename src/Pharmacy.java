@@ -1,10 +1,7 @@
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.NoSuchElementException;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Getter
 public class Pharmacy {
@@ -23,6 +20,15 @@ public class Pharmacy {
         this.location = location;
         this.phoneNumber = phoneNumber;
         this.stocks = new ArrayList<>();
+    }
+
+    public Set<Medication> getMedications(){
+        Set<Medication> medications = new HashSet<>();
+
+        for(PharmacyStock stock :stocks){
+            medications.add(stock.getMedication());
+        }
+        return medications;
     }
 
     public void addStock(PharmacyStock stock){
